@@ -1,0 +1,18 @@
+apiVersion: route.openshift.io/v1
+kind: Route
+metadata:
+  name: pacman
+  namespace: pacman
+spec:
+  host: pacman-ingress.apps.cluster-cluster3-724e.cluster3-724e.sandbox1805.opentlc.com
+  port:
+    targetPort: 8080
+  to:
+    kind: Service
+    name: pacman
+    weight: 100
+status:
+  ingress:
+  - conditions:
+    - status: "True"
+      type: Admitted
