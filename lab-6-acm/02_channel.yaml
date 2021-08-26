@@ -4,5 +4,5 @@ metadata:
   name: mongochannel
   namespace: mongo
 spec:
-  pathname: 'https://github.com/tgubelig/rh-forum-21.git'
+  pathname: 'https://github.com/tgubeli/rh-forum-21.git'
   type: GitHub
