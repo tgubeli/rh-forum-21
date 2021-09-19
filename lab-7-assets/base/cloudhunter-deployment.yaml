@@ -1,0 +1,54 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    name: cloudhunter
+  name: cloudhunter
+  namespace: cloudhunter
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      name: cloudhunter
+  template:
+    metadata:
+      labels:
+        name: cloudhunter
+    spec:
+      serviceAccount: cloudhunter
+      containers:
+      - image: quay.io/tgubeli/pacman-nodejs-app:clouds
+        name: cloudhunter
+        ports:
+        - containerPort: 8080
+        env:
+        - name: MONGO_SERVICE_HOST
+          # Single member MongoDB
+          # value: primarymongohere
+          # Replicaset (federated) MongoDB
+          value: mongo-cluster1.apps.aws1.aws-clusters.rhforum.net,mongo-cluster2.apps.gcp1.gcp-clusters.rhforum.net,mongo-cluster3.apps.azure1.azure-clusters.rhforum.net
+          # Comment out MONGO_REPLICA_SET for the single-member Mongo
+        - name: MONGO_REPLICA_SET
+          value: rs0
+        - name: MONGO_AUTH_USER
+          valueFrom:
+            secretKeyRef:
+              key: database-user
+              name: mongodb-users-secret
+        - name: MONGO_AUTH_PWD
+          valueFrom:
+            secretKeyRef:
+              key: database-password
+              name: mongodb-users-secret
+        - name: MONGO_DATABASE
+          value: pacman
+        - name: MY_MONGO_PORT
+          value: "443"
+        - name: MONGO_USE_SSL
+          value: "true"
+        - name: MONGO_VALIDATE_SSL
+          value: "false"
+        - name: MY_NODE_NAME
+          valueFrom:
+            fieldRef:
+              fieldPath: spec.nodeName

@@ -1,0 +1,18 @@
+apiVersion: route.openshift.io/v1
+kind: Route
+metadata:
+  name: cloudhunter
+  namespace: cloudhunter
+spec:
+  host: cloudhunter.apps.gcp2.gcp-clusters.rhforum.net
+  port:
+    targetPort: 8080
+  to:
+    kind: Service
+    name: cloudhunter
+    weight: 100
+status:
+  ingress:
+  - conditions:
+    - status: "True"
+      type: Admitted
