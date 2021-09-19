@@ -1,9 +1,0 @@
-apiVersion: apps/v1
-kind: Deployment
-metadata:
-  labels:
-    name: pacman
-  name: pacman
-  namespace: pacman
-spec:
-  replicas: 5

@@ -1,8 +1,8 @@
 apiVersion: apps.open-cluster-management.io/v1
 kind: Channel
 metadata:
-  name: pacmanchannel
-  namespace: pacman
+  name: cloudhunterchannel
+  namespace: cloudhunter
 spec:
   pathname: 'https://github.com/tgubeli/rh-forum-21.git'
   type: GitHub

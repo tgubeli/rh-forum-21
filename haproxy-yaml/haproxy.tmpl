@@ -70,9 +70,10 @@ frontend  main
 #---------------------------------------------------------------------
 backend app
     balance roundrobin
-    option httpchk GET / HTTP/1.1\r\nHost:\ <pacman_lb_hostname>
-    mode http 
-        server <server1_name> <server1_pacman_route>:<route_port> check
-        server <server2_name> <server2_pacman_route>:<route_port> check
-        server <server3_name> <server3_pacman_route>:<route_port> check
-
+    option httpchk GET / HTTP/1.1\r\nHost:\ <cloudhunter_lb_hostname>
+    mode http
+        server <server1_name> <server1_cloudhunter_route>:<route_port> check
+        server <server2_name> <server2_cloudhunter_route>:<route_port> check
+        server <server3_name> <server3_cloudhunter_route>:<route_port> check
+        server <server4_name> <server4_cloudhunter_route>:<route_port> check
+        server <server5_name> <server5_cloudhunter_route>:<route_port> check

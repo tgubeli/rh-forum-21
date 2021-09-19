@@ -1,5 +1,5 @@
 bases:
 - ../../base
 patchesStrategicMerge:
-- pacman-deployment.yaml
-- pacman-route.yaml
+- cloudhunter-deployment.yaml
+- cloudhunter-route.yaml
