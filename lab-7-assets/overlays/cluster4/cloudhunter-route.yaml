@@ -4,7 +4,7 @@ metadata:
   name: cloudhunter
   namespace: cloudhunter
 spec:
-  host: cloudhunter.apps.gcp2.gcp-clusters.rhforum.net
+  host: cloudhunter.apps.azure2.azure-clusters.rhforum.net
   port:
     targetPort: 8080
   to:
