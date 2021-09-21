@@ -17,7 +17,7 @@ spec:
     spec:
       serviceAccount: cloudhunter
       containers:
-      - image: quay.io/tgubeli/pacman-nodejs-app:burguer
+      - image: quay.io/tgubeli/pacman-nodejs-app:clouds
         name: cloudhunter
         ports:
         - containerPort: 8080
