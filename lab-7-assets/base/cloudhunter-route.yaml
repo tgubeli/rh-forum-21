@@ -4,7 +4,6 @@ metadata:
   name: cloudhunter
   namespace: cloudhunter
 spec:
-  host: cloudhunter-ingress.apps.ocpcluster.rhforum.net
   port:
     targetPort: 8080
   to:
