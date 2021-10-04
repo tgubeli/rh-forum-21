@@ -1,0 +1,17 @@
+apiVersion: route.openshift.io/v1
+kind: Route
+metadata:
+  name: cloudhunter
+  namespace: cloudhunter
+spec:
+  port:
+    targetPort: 8080
+  to:
+    kind: Service
+    name: cloudhunter
+    weight: 100
+status:
+  ingress:
+  - conditions:
+    - status: "True"
+      type: Admitted
